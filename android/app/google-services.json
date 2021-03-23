@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1003028528550",
+    "project_id": "fickle-app",
+    "storage_bucket": "fickle-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003028528550:android:4a8c110c7e4d40e54ea367",
+        "android_client_info": {
+          "package_name": "com.ghosts.fickle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1003028528550-6a89lgmsnpkl981jkr9u097peqidko7q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7kTA7rw4uiupgmL2_2bw79NVOeMcAN2w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1003028528550-6a89lgmsnpkl981jkr9u097peqidko7q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
