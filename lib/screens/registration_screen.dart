@@ -90,7 +90,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   minWidth: 200.0,
                   height: 42.0,
                   child: Text(
-                    'Register',
+                    'Sign up',
                     style: TextStyle(color: Colors.white),
                   ),
                 ),

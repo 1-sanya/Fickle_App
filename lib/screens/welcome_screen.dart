@@ -1,9 +1,9 @@
-import 'package:fickle/screens/login_screen.dart';
 import 'package:fickle/screens/registration_screen.dart';
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:fickle/components/rounded_button.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
@@ -12,23 +12,7 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProviderStateMixin {
-  AnimationController controller;
 
-  @override
-  void initState() {
-    super.initState();
-    controller = AnimationController(
-      duration: Duration(seconds: 2),
-      vsync: this,
-    );
-    controller.reverse(from: 1.5);
-    controller.addListener((){
-      setState(() {
-
-      });
-      print(controller.value);
-    });
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,50 +44,22 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
                 color: Colors.white70,
               ),
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                elevation: 5.0,
-                color: Colors.pinkAccent,
-                borderRadius: BorderRadius.circular(30.0),
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, LoginScreen.id);
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Log In',
-                  ),
+            RoundedButton(text: 'Log  In',),
+            RoundedButton(text: 'Sign up'),
+            SizedBox(
+              height: 30.0,
+              child: Center(
+                child: AnimatedTextKit(
+                  animatedTexts: [
+                    TyperAnimatedText('Let Emotions Speak...',
+                    textStyle: TextStyle(
+                      color: Colors.white,
+                    )),
+                  ],
+                  isRepeatingAnimation: true,
                 ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                color: Colors.blueAccent,
-                borderRadius: BorderRadius.circular(30.0),
-                elevation: 5.0,
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context ,RegistrationScreen.id);
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Register',
-                  ),
                 ),
-              ),
             ),
-            Center(
-              child: AnimatedTextKit(
-                animatedTexts: [
-                  WavyAnimatedText('A Messenger With Emotions'),
-                ],
-                isRepeatingAnimation: true,
-              ),
-              ),
           ],
 
         ),
