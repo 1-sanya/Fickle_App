@@ -14,7 +14,7 @@ class Fickle extends StatelessWidget {
     return MaterialApp(
       home: AnimatedSplashScreen(
         duration: 2000,
-        splashIconSize: 120.0,
+        splashIconSize: 135.0,
         splash: Image.asset(
           'images/SplashScreenLogo.png'
         ),

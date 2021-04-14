@@ -1,9 +1,8 @@
-import 'package:fickle/screens/registration_screen.dart';
-import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:fickle/components/rounded_button.dart';
+import 'login_screen.dart';
+import 'registration_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
@@ -44,21 +43,18 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
                 color: Colors.white70,
               ),
             ),
-            RoundedButton(text: 'Log  In',),
-            RoundedButton(text: 'Sign up'),
+            RoundedButton(text: 'Log  In',buttonColor: Colors.blue, onPressed: () {
+              Navigator.pushNamed(context, LoginScreen.id);
+            },),
+            RoundedButton(text: 'Sign up', buttonColor: Colors.pinkAccent, onPressed: () {
+              Navigator.pushNamed(context, RegistrationScreen.id);
+            },),
             SizedBox(
               height: 30.0,
               child: Center(
-                child: AnimatedTextKit(
-                  animatedTexts: [
-                    TyperAnimatedText('Let Emotions Speak...',
-                    textStyle: TextStyle(
-                      color: Colors.white,
-                    )),
-                  ],
-                  isRepeatingAnimation: true,
+                child: Text ('Let Emotions Speak...', style: GoogleFonts.caveat(fontSize: 12.0),
                 ),
-                ),
+            ),
             ),
           ],
 
