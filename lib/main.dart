@@ -5,8 +5,13 @@ import 'package:fickle/screens/registration_screen.dart';
 import 'package:fickle/screens/chat_screen.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() => runApp(Fickle());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(Fickle());
+}
 
 class Fickle extends StatelessWidget {
   @override
@@ -14,7 +19,7 @@ class Fickle extends StatelessWidget {
     return MaterialApp(
       home: AnimatedSplashScreen(
         duration: 2000,
-        splashIconSize: 135.0,
+        splashIconSize: 142.0,
         splash: Image.asset(
           'images/SplashScreenLogo.png'
         ),
