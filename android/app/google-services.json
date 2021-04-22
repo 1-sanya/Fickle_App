@@ -7,12 +7,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1003028528550:android:4a8c110c7e4d40e54ea367",
+        "mobilesdk_app_id": "1:1003028528550:android:33484945a459d1544ea367",
         "android_client_info": {
-          "package_name": "com.ghosts.fickle"
+          "package_name": "com.example.fickle"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "1003028528550-aolav62bait5dj2926vcb8g962lnlcat.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fickle",
+            "certificate_hash": "c61edf1bf5ee1cf8e9e57a4f00b9b0b9740a7b56"
+          }
+        },
         {
           "client_id": "1003028528550-6a89lgmsnpkl981jkr9u097peqidko7q.apps.googleusercontent.com",
           "client_type": 3

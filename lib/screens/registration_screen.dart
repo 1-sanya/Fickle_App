@@ -38,13 +38,25 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 child: Hero(
                   tag: 'Flicker',
                   child: Container(
-                    height: 45.0,
-                    child: Image.asset('images/Flicker.png'),
+                    height: 340.0,
+                    child: Image.asset('images/Saly-24.png'),
                   ),
                 ),
               ),
               SizedBox(
-                height: 48.0,
+                height: 50.0,
+              ),
+              SizedBox(
+                height: 42.0,
+                child: Text(
+                  'Signup',
+                  style: TextStyle(color: Colors.white,
+                      letterSpacing: 3.5,
+                      fontSize: 40.0),
+                ),
+              ),
+              SizedBox(
+                height: 24.0,
               ),
               TextField(
                 style: TextStyle(color: Colors.white),
@@ -53,7 +65,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   username = value;
                   },
                   decoration:
-                      kTextFieldDecoration.copyWith(hintText: 'Username')),
+                      kTextFieldDecoration.copyWith(hintText: 'Name')),
               SizedBox(
                 height: 8.0,
               ),

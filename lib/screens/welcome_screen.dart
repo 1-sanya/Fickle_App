@@ -1,8 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fickle/components/rounded_button.dart';
 import 'login_screen.dart';
 import 'registration_screen.dart';
+import 'package:fickle/auth.dart';
+import 'package:fickle/res/custom_colors.dart';
+import 'package:fickle/widgets/google_sign_in_button.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
@@ -28,20 +32,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
                 Hero(
                   tag: 'Flicker',
                   child: Container(
-                    child: Image.asset('images/Flicker.png'),
-                    height: 30.0,
+                    child: Image.asset('images/Saly-24.png'),
+                    height: 300.0,
                   ),
                 ),
               ],
             ),
             SizedBox(
-              height: 48.0,
-              child: Divider(
-                height: 14.0,
-                indent: 30.0,
-                endIndent: 30.0,
-                color: Colors.white70,
-              ),
+              height: 30.0,
             ),
             RoundedButton(text: 'Log  In',buttonColor: Colors.blue, onPressed: () {
               Navigator.pushNamed(context, LoginScreen.id);
@@ -50,12 +48,28 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
               Navigator.pushNamed(context, RegistrationScreen.id);
             },),
             SizedBox(
-              height: 30.0,
+              height: 200.0,
               child: Center(
-                child: Text ('Let Emotions Speak...', style: GoogleFonts.caveat(fontSize: 12.0),
-                ),
+                child:  GoogleSignInButton(),
+              )
             ),
+            Container(
+              height: 20.0,
+              child: Image.asset('images/Flicker.png'),
             ),
+            SizedBox(
+              height: 20.0,
+            ),
+            Text(
+              'Let Your Emotions Speak',
+              style: TextStyle(
+                color: Colors.white,
+                letterSpacing: 2.0,
+                fontSize: 10.0,
+                fontFamily: 'RalewayDots',
+              ),
+              textAlign: TextAlign.center,
+            )
           ],
 
         ),
