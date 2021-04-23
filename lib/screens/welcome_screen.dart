@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:fickle/components/rounded_button.dart';
 import 'login_screen.dart';
 import 'registration_screen.dart';

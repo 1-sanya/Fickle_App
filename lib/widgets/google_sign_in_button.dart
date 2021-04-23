@@ -1,3 +1,5 @@
+import 'package:fickle/screens/chat_screen.dart';
+import 'package:fickle/screens/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fickle/screens/user_info_screen.dart';
@@ -40,10 +42,9 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
           });
 
           if (user != null) {
-            print(user.email);
             Navigator.of(context).pushReplacement(
               MaterialPageRoute(
-                builder: (context) => UserInfoScreen(
+                builder: (context) => MyHomePage(
                   user: user,
                 ),
               ),
@@ -57,13 +58,13 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Image(
-                image: AssetImage("assets/google_logo.png"),
-                height: 35.0,
+                image: AssetImage("images/google_logo.png"),
+                height: 20.0,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 10),
+                padding: EdgeInsets.only(left: 10),
                 child: Text(
-                  'Sign in with Google',
+                  'Sign in',
                   style: TextStyle(
                     fontSize: 20,
                     color: Colors.black54,

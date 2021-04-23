@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:fickle/res/custom_colors.dart';
 import 'package:fickle/screens/login_screen.dart';
 import 'package:fickle/auth.dart';
-import 'package:fickle/widgets/app_bar_title.dart';
 
 class UserInfoScreen extends StatefulWidget {
   const UserInfoScreen({Key key, @required User user})
@@ -52,7 +51,15 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: CustomColors.firebaseNavy,
-        title: AppBarTitle(),
+        title: AppBar(
+          leading: null,
+          title: Image.asset(
+            'images/Flicker.png',
+            height: 25.0,
+          ),
+          centerTitle: true,
+          backgroundColor: Colors.black,
+        ),
       ),
       body: SafeArea(
         child: Padding(
@@ -69,10 +76,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                   ? ClipOval(
                 child: Material(
                   color: CustomColors.firebaseGrey.withOpacity(0.3),
-                  child: Image.network(
-                    _user.photoURL,
-                    fit: BoxFit.fitHeight,
-                  ),
+                  child: Image.network(_user.photoURL)
                 ),
               )
                   : ClipOval(
@@ -106,7 +110,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               ),
               SizedBox(height: 8.0),
               Text(
-                '( ${_user.email} )',
+                '(email )',
                 style: TextStyle(
                   color: CustomColors.firebaseOrange,
                   fontSize: 20,
