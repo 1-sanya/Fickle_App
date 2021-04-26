@@ -1,15 +1,16 @@
-import 'package:fickle/screens/login_screen.dart';
 import 'package:flutter/material.dart';
+
 class RoundedButton extends StatelessWidget {
-  RoundedButton({this.text, this.buttonColor, this.onPressed});
+  RoundedButton({this.text, this.buttonColor, this.onPressed, this.padding});
 
   final String text;
   final Color buttonColor;
   final Function onPressed;
+  final EdgeInsetsGeometry padding;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 16.0),
+      padding: padding,
       child: Material(
         elevation: 5.0,
         color: buttonColor,

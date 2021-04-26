@@ -1,11 +1,14 @@
 import 'package:fickle/components/rounded_button.dart';
 import 'package:fickle/constants.dart';
-import 'package:fickle/screens/chat_screen.dart';
+import 'package:fickle/screens/community_chat.dart';
+import 'package:fickle/screens/home_screen.dart';
+import 'package:fickle/screens/registration_screen.dart';
+import 'package:fickle/widgets/google_sign_in_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
-import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:fickle/auth.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id = 'login_screen';
@@ -24,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Theme.of(context).backgroundColor,
       body: ModalProgressHUD(
         inAsyncCall: showSpinner,
         child: Padding(
@@ -62,7 +65,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   onChanged: (value) {
                     email = value;
                   },
-                  decoration: kTextFieldDecoration.copyWith(hintText: 'Email')),
+                  decoration: kTextFieldDecoration.copyWith(
+                      hintText: 'Email',
+                      fillColor: Color(0xFFFFFFFF).withOpacity(0.2))),
               SizedBox(
                 height: 8.0,
               ),
@@ -73,32 +78,68 @@ class _LoginScreenState extends State<LoginScreen> {
                   onChanged: (value) {
                     password = value;
                   },
-                  decoration:
-                      kTextFieldDecoration.copyWith(hintText: 'Password')),
+                  decoration: kTextFieldDecoration.copyWith(
+                      hintText: 'Password',
+                      fillColor: Color(0xFFFFFFFF).withOpacity(0.2))),
               SizedBox(
                 height: 24.0,
               ),
               RoundedButton(
-                text: 'Log In',
-                buttonColor: Colors.blue,
-                onPressed: () async {
-                  setState(() {
-                    showSpinner = true;
-                  });
-                  try {
-                    UserCredential userCredentials =
-                        await _auth.signInWithEmailAndPassword(
-                            email: email, password: password);
-                    if (userCredentials != null) {
-                      Navigator.pushNamed(context, ChatScreen.id);
-                    }
+                  text: 'Log In',
+                  buttonColor: Colors.blue,
+                  onPressed: () async {
                     setState(() {
-                      showSpinner = false;
+                      showSpinner = true;
                     });
-                  } catch (e) {
-                    print(e);
-                  }
+                    try {
+                      UserCredential userCredentials =
+                          await _auth.signInWithEmailAndPassword(
+                              email: email, password: password);
+                      if (userCredentials != null) {
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) => MyHomePage(
+                              newUser: userCredentials,
+                            ),
+                          ),
+                        );
+                      }
+                      setState(() {
+                        showSpinner = false;
+                      });
+                    } catch (e) {
+                      setState(() {
+                        showSpinner = false;
+                      });
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        Authentication.customSnackBar(
+                          content: e,
+                        ),
+                      );
+                    }
+                  },
+                  padding: EdgeInsets.symmetric(vertical: 10.0)),
+              InkWell(
+                child: GoogleSignInButton(
+                  text: 'SignIn With Google',
+                  alignmentGeometry: AlignmentDirectional.topEnd,
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, RegistrationScreen.id);
                 },
+                child: Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Text(
+                    "Need a New Account..!!",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'RalewayThin',
+                        letterSpacing: 3.0,
+                        fontSize: 17.0),
+                  ),
+                ),
               ),
             ],
           ),

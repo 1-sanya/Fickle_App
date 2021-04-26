@@ -18,13 +18,16 @@ const kMessageContainerDecoration = BoxDecoration(
   ),
 );
 
+const kFireBaseDBName = 'messages';
+const kFireBaseDBSenderLabel = 'sender';
+const kFireBaseDBTextLabel = 'text';
+const kFireBaseDBTimestamp = 'timestamp';
+
 const kTextFieldDecoration = InputDecoration(
+  filled: true,
   hintText: 'Enter your password',
-  hintStyle: TextStyle(
-    color: Colors.grey,
-    fontFamily: 'RalewayThin',
-    fontSize: 20.0
-  ),
+  hintStyle:
+      TextStyle(color: Colors.grey, fontFamily: 'RalewayThin', fontSize: 20.0),
   contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
   border: OutlineInputBorder(
     borderRadius: BorderRadius.all(Radius.circular(32.0)),
@@ -38,3 +41,13 @@ const kTextFieldDecoration = InputDecoration(
     borderRadius: BorderRadius.all(Radius.circular(32.0)),
   ),
 );
+
+const kMyBubbleRadius = BorderRadius.only(
+    topLeft: Radius.circular(30.0),
+    bottomRight: Radius.circular(30.0),
+    bottomLeft: Radius.circular(30.0));
+
+const kOtherUserBubbleRadius = BorderRadius.only(
+    topRight: Radius.circular(30.0),
+    bottomRight: Radius.circular(30.0),
+    bottomLeft: Radius.circular(30.0));
